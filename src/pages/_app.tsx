@@ -8,9 +8,7 @@ import { NextPage } from 'next';
 const App = (props: { Component: any; pageProps: any; }) => {
   const { Component, pageProps } = props;
 
-
   const getLayout = Component.getLayout ?? ((page: NextPage) => page);
-
   const theme = createTheme();
 
   return (
