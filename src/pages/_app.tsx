@@ -4,7 +4,11 @@ import { ThemeProvider } from '@mui/material/styles';
 import { createTheme } from '../theme';
 import 'simplebar-react/dist/simplebar.min.css';
 import { NextPage } from 'next';
+import Chart from "chart.js/auto";
+import { CategoryScale } from "chart.js";
 
+
+Chart.register(CategoryScale);
 const App = (props: { Component: any; pageProps: any; }) => {
   const { Component, pageProps } = props;
 
