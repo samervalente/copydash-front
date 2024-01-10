@@ -68,7 +68,7 @@ export const OverviewTotalSubscribers = (props: { difference: any; positive?: fa
                             color="text.secondary"
                             variant="caption"
                         >
-                            Since last month
+                            Desde o último mês
                         </Typography>
                     </Stack>
                 )}

@@ -13,11 +13,11 @@ import {
 import { alpha, useTheme } from '@mui/material/styles';
 import { Bar } from 'react-chartjs-2';
 import { BarChart } from '@/components/BarChart';
-import { MRRData } from '@/charts/mrr/setup';
 // import { Chart } from 'src/components/chart';
 
 const useChartOptions = () => {
     const theme = useTheme();
+
 
     return {
         chart: {
@@ -107,12 +107,28 @@ const useChartOptions = () => {
     };
 };
 
-export const OverviewMRR = (props: { chartSeries: any; sx: any; }) => {
-    const { chartSeries, sx } = props;
+export interface MRRInterface {
+    month: string,
+    revenue: number
+}
+
+export const OverviewMRR = (props: { data: any }) => {
+    const { data: mrrData } = props;
     const chartOptions = useChartOptions();
 
+    const MRRData = {
+        type: "bar",
+        labels: mrrData?.mrr?.map((data: MRRInterface) => data.month),
+        datasets: [
+            {
+                label: mrrData?.symbol,
+                data: mrrData?.mrr?.map((data: MRRInterface) => data.revenue),
+                tension: 0.4,
+            },
+        ],
+    };
     return (
-        <Card sx={sx}>
+        <Card sx={{ width: "100%", heigth: "100%" }}>
             <CardHeader
                 action={(
                     <Button

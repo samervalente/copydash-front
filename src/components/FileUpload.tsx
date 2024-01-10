@@ -2,7 +2,6 @@ import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { Alert, AlertColor, Box, Snackbar, Stack, Typography, useMediaQuery } from '@mui/material';
-import { axiosInstance } from '@/config/axios';
 import { useState } from 'react';
 import Image from 'next/image';
 
@@ -24,7 +23,7 @@ interface Alert {
     severity: AlertColor | undefined
 }
 
-export default function FileUploadInput() {
+export default function FileUploadInput({ handleUploadFile }: { handleUploadFile: any }) {
     const [alert, setAlert] = useState<Alert>({
         open: false,
         severity: undefined,
@@ -40,8 +39,7 @@ export default function FileUploadInput() {
         const formData = new FormData()
         formData.append('file', file)
         try {
-            const processedData = await axiosInstance.post('/subscription/upload/metrics', formData)
-            console.log(processedData)
+            await handleUploadFile(formData)
             setAlert({ open: true, severity: "success", message: "Sucesso ao fazer upload da planilha" })
         } catch (error) {
             setAlert({ open: true, severity: "error", message: "Erro ao fazer upload da planilha" })

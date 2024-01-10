@@ -6,7 +6,9 @@ import 'simplebar-react/dist/simplebar.min.css';
 import { NextPage } from 'next';
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
+import { QueryClient, QueryClientProvider } from 'react-query';
 
+const queryClient = new QueryClient();
 
 Chart.register(CategoryScale);
 const App = (props: { Component: any; pageProps: any; }) => {
@@ -27,11 +29,13 @@ const App = (props: { Component: any; pageProps: any; }) => {
           content="initial-scale=1, width=device-width"
         />
       </Head>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          {getLayout(<Component {...pageProps} />)}
+        </ThemeProvider>
+      </QueryClientProvider>
 
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        {getLayout(<Component {...pageProps} />)}
-      </ThemeProvider>
     </>
 
   );

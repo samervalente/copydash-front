@@ -1,3 +1,4 @@
+"use client"
 import Head from 'next/head';
 import { Box, Container, Unstable_Grid2 as Grid } from '@mui/material';
 import { Layout as DashboardLayout } from '../layouts/dashboard/main';
@@ -8,9 +9,19 @@ import { ChurnRate } from "../sections/overview-churn-rate";
 import { OverviewTotalProfit } from "../sections/overview-total-profit";
 import { OverviewMRR } from "../sections/overview-mrr";
 import FileUploadInput from '@/components/FileUpload';
+import { useMutation } from 'react-query'
+import { uploadSubscriptionMetricsData } from '@/services/axiosSubscriptionRequests';
+import { useState } from 'react';
 
-const Page = () => (
-  <>
+const Page = () => {
+  const [mrrData, setMRRData] = useState({})
+  const { mutate: handleFileUploadMutation } = useMutation(uploadSubscriptionMetricsData, {
+    onSuccess: ({ data }) => {
+      setMRRData(data)
+    }
+  })
+  console.log(mrrData)
+  return <>
     <Head>
       <title>
         Overview
@@ -24,7 +35,7 @@ const Page = () => (
       }}
     >
       <Container maxWidth="xl">
-        <FileUploadInput />
+        <FileUploadInput handleUploadFile={handleFileUploadMutation} />
         <Grid
           container
           spacing={3}
@@ -48,24 +59,14 @@ const Page = () => (
           </Grid>
           <Grid xs={12} lg={8}>
             <OverviewMRR
-              chartSeries={[
-                {
-                  name: "This year",
-                  data: [18, 16, 5, 8, 3, 14, 14, 16, 17, 19, 18, 20],
-                },
-                {
-                  name: "Last year",
-                  data: [12, 11, 4, 6, 2, 9, 9, 10, 11, 12, 13, 13],
-                },
-              ]}
-              sx={{ height: "100%" }}
+              data={mrrData}
             />
           </Grid>
         </Grid>
       </Container>
     </Box>
   </>
-);
+}
 
 Page.getLayout = (page: NextPage) => (
   <DashboardLayout>
