@@ -1,40 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
 
-## Getting Started
+# CopyDash - Dashboard dinâmico
+![image](https://github.com/samervalente/copydash-front/assets/90073210/38d135a9-87f9-4f59-8933-d3ecd692c50c)
+</div>
 
-First, run the development server:
+## Introdução
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Bem-vindo ao repositório da solução desenvolvida para o desafio de frontend da copybase, que consiste na criação de uma aplicação React utilizando Next.js, React Query, Material-UI (Mui) e Axios. Esta plataforma tem como objetivo calcular o MRR (Monthly Recurring Revenue) e o Churn Rate com base nos dados de assinaturas contidos em uma planilha.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Funcionalidades Principais
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+1. **Upload de Arquivo:**
+   - A aplicação permite o upload de uma planilha contendo dados de assinaturas. Essa funcionalidade é crucial para o processamento de informações relevantes.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+2. **Processamento de Dados:**
+   - Após o upload, a aplicação realiza o processamento dos dados da planilha para calcular o MRR e o Churn Rate.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+3. **Exibição de Resultados:**
+   - Os resultados são apresentados de maneira clara e intuitiva na interface, proporcionando uma compreensão rápida e fácil dos valores calculados.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. **Visualização Gráfica:**
+   - Gráficos visuais são gerados para fornecer uma representação visual dos dados, tornando a interpretação dos resultados mais acessível.
 
-## Learn More
+## Tecnologias Utilizadas
 
-To learn more about Next.js, take a look at the following resources:
+- **React:** Biblioteca JavaScript para construção da interface de usuário.
+- **Next.js:** Framework React para desenvolvimento de aplicativos web escaláveis.
+- **React Query:** Gerenciamento de estado e dados de forma eficiente.
+- **Material-UI (Mui):** Biblioteca de componentes React para uma UI moderna e responsiva.
+- **Axios:** Cliente HTTP para realizar requisições à API responsável pelo processamento dos dados.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Como Iniciar
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. **Instalação de Dependências:**
+   ```bash
+   npm install
+2. **Execute a aplicação:**
+   ```bash
+   npm run dev
