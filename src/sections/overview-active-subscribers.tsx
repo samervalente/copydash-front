@@ -1,10 +1,9 @@
-import PropTypes from 'prop-types';
 import ArrowDownIcon from '@heroicons/react/24/solid/ArrowDownIcon';
 import ArrowUpIcon from '@heroicons/react/24/solid/ArrowUpIcon';
 import CurrencyDollarIcon from '@heroicons/react/24/solid/CurrencyDollarIcon';
 import { Avatar, Card, CardContent, Stack, SvgIcon, Typography } from '@mui/material';
 
-export const OverviewActiveSubscribers = (props: { difference: number; positive?: boolean; sx: Object; value: string; }) => {
+export const OverviewActiveSubscribers = (props: { difference: number; positive?: boolean; sx: Object; value: number; }) => {
     const { difference, positive = false, sx, value } = props;
 
     return (
@@ -21,7 +20,7 @@ export const OverviewActiveSubscribers = (props: { difference: number; positive?
                             color="text.secondary"
                             variant="overline"
                         >
-                            Assinantes ativos
+                            Assinaturas ativas
                         </Typography>
                         <Typography variant="h4">
                             {value}

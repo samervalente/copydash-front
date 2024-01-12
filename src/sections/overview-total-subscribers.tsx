@@ -21,7 +21,7 @@ export const OverviewTotalSubscribers = (props: { difference: any; positive?: fa
                             color="text.secondary"
                             variant="overline"
                         >
-                            Total de assinantes
+                            Total de assinaturas
                         </Typography>
                         <Typography variant="h4">
                             {value}

@@ -29,10 +29,10 @@ export const ChurnRate = (props: { value: any; sx: any; }) => {
                             gutterBottom
                             variant="overline"
                         >
-                            Taxa de Churn
+                            Assinaturas canceladas
                         </Typography>
                         <Typography variant="h4">
-                            {value}%
+                            {value}
                         </Typography>
                     </Stack>
                     <Avatar

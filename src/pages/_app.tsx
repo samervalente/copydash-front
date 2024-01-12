@@ -7,7 +7,10 @@ import { NextPage } from 'next';
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import { QueryClient, QueryClientProvider } from 'react-query';
-
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { ptBR } from '@mui/x-date-pickers/locales';
+import 'dayjs/locale/pt-br'
 const queryClient = new QueryClient();
 
 Chart.register(CategoryScale);
@@ -32,7 +35,9 @@ const App = (props: { Component: any; pageProps: any; }) => {
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          {getLayout(<Component {...pageProps} />)}
+          <LocalizationProvider adapterLocale='pt-br' localeText={ptBR.components.MuiLocalizationProvider.defaultProps.localeText} dateAdapter={AdapterDayjs}>
+            {getLayout(<Component {...pageProps} />)}
+          </LocalizationProvider>
         </ThemeProvider>
       </QueryClientProvider>
 

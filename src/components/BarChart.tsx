@@ -1,15 +1,15 @@
 import { Bar } from "react-chartjs-2";
-export const BarChart = ({ chartData }: { chartData: any }) => {
+export const BarChart = ({ chartData, text, title }: { chartData: any, text: string, title?: string }) => {
     return (
         <div className="chart-container">
-            <h2 style={{ textAlign: "center" }}>Receita recorrente mensal</h2>
+            <h2 style={{ textAlign: "center" }}>{title}</h2>
             <Bar
                 data={chartData}
                 options={{
                     plugins: {
                         title: {
                             display: true,
-                            text: "MRR para o ano de 2022"
+                            text
                         },
                         legend: {
                             display: false

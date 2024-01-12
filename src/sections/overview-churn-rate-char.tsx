@@ -10,26 +10,29 @@ import {
     SvgIcon,
 } from '@mui/material';
 import { BarChart } from '@/components/BarChart';
-export interface MRRInterface {
+
+
+export interface ChurnRateInterface {
     month: string,
-    revenue: number
+    rate: number,
+    exceed: number
 }
 
-export const OverviewMRR = (props: { data: any }) => {
-    const { data: mrrData } = props;
-
+export const OverViewChurnRateChar = (props: { data: any }) => {
+    const { data: churnRate } = props;
 
     const MRRData = {
         type: "bar",
-        labels: mrrData?.map((data: MRRInterface) => data.month),
+        labels: churnRate.rate?.map((data: ChurnRateInterface) => data.month),
         datasets: [
             {
-                label: mrrData?.symbol,
-                data: mrrData?.map((data: MRRInterface) => data.revenue),
+                label: '%',
+                data: churnRate.rate?.map((data: ChurnRateInterface) => data.rate),
                 tension: 0.4,
             },
         ],
     };
+
     return (
         <Card sx={{ width: "100%", heigth: "100%" }}>
             <CardHeader
@@ -46,19 +49,11 @@ export const OverviewMRR = (props: { data: any }) => {
                         Sync
                     </Button>
                 )}
-                title="MRR"
+                title="Churn Rate"
             />
 
-
             <CardContent>
-                {/* <Chart
-                    height={350}
-                    options={chartOptions}
-                    series={chartSeries}
-                    type="bar"
-                    width="100%"
-                /> */}
-                <BarChart text='Receita recorrente mensal para o ano de 2022' title='' chartData={MRRData} />
+                <BarChart text='Taxa de churn para o período selecionado' chartData={MRRData} />
             </CardContent>
             <Divider />
             <CardActions sx={{ justifyContent: 'flex-end' }}>
@@ -74,7 +69,7 @@ export const OverviewMRR = (props: { data: any }) => {
                     Overview
                 </Button>
             </CardActions>
-        </Card>
+        </Card >
     );
 };
 

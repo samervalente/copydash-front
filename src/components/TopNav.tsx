@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types';
 import {
-    Box,
-    Stack,
+    Box
 } from '@mui/material';
 import { alpha } from '@mui/material/styles';
 
 
 const SIDE_NAV_WIDTH = 280;
-const TOP_NAV_HEIGHT = 64;
 
 export const TopNav = (props: any) => {
 
@@ -28,18 +26,7 @@ export const TopNav = (props: any) => {
                 zIndex: (theme) => theme.zIndex.appBar
             }}
         >
-            <Stack
-                alignItems="center"
-                direction="row"
-                justifyContent="space-between"
-                spacing={2}
-                sx={{
-                    minHeight: TOP_NAV_HEIGHT,
-                    px: 2
-                }}
-            >
-                Estrutura inicial da TopNav
-            </Stack>
+
         </Box>
     );
 };
