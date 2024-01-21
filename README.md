@@ -6,7 +6,7 @@
 
 ## Introdução
 
-Bem-vindo ao repositório da solução desenvolvida para o desafio de frontend da copybase, que consiste na criação de uma aplicação React utilizando Next.js, React Query, Material-UI (Mui) e Axios. Esta plataforma tem como objetivo calcular o MRR (Monthly Recurring Revenue) e o Churn Rate com base nos dados de assinaturas contidos em uma planilha.
+Bem-vindo ao repositório de uma aplicação React utilizando Next.js, React Query, Material-UI (Mui) e Axios. Esta plataforma tem como objetivo calcular o MRR (Monthly Recurring Revenue) e o Churn Rate com base nos dados de assinaturas contidos em uma planilha.
 
 ## Funcionalidades Principais
 
